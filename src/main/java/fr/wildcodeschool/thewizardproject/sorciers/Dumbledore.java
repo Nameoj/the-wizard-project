@@ -1,8 +1,19 @@
 package fr.wildcodeschool.thewizardproject.sorciers;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component("HarryPotter")
 public class Dumbledore implements WizardInterface {
 	
 	private OutFit myOutFit;
+	
+	@Autowired
+	public Dumbledore(OutFit theOutFit) {
+		
+		myOutFit = theOutFit;
+		
+	}
 	
 	@Override
 	public String giveAdvice() {
@@ -10,16 +21,12 @@ public class Dumbledore implements WizardInterface {
 		return "La peur d'un nom ne fait qu'accroître la peur de la chose elle-même";
 		
 	}
-	
-	public Dumbledore(OutFit theOutFit) {
-		
-		myOutFit = theOutFit;
-	}
-	
 
 	@Override
 	public String changeDress() {
-		
-		return myOutFit.change();
+		// TODO Auto-generated method stub
+		return this.myOutFit.change();
 	}
+	
+
 }

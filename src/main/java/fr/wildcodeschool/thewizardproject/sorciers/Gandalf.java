@@ -1,5 +1,9 @@
 package fr.wildcodeschool.thewizardproject.sorciers;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component("Seigneur")
 public class Gandalf implements WizardInterface {
 	
 	private OutFit myOutFit;
@@ -11,6 +15,7 @@ public class Gandalf implements WizardInterface {
 		
 	}
 	
+	@Autowired
 	public Gandalf(OutFit theOutFit) {
 		
 		myOutFit = theOutFit;
@@ -19,6 +24,6 @@ public class Gandalf implements WizardInterface {
 	@Override
 	public String changeDress() {
 	
-		return myOutFit.change();
+		return this.myOutFit.change();
 	}
 }
